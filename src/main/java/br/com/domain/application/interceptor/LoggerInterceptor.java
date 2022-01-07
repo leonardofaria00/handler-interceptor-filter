@@ -1,4 +1,4 @@
-package br.com.domain.application.logger;
+package br.com.domain.application.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +49,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         }
         String ip = request.getHeader("X-FORWARDED-FOR");
         String ipAddr = (ip == null) ? getRemoteAddr(request) : ip;
-        if (ipAddr!=null && !ipAddr.equals("")) {
+        if (ipAddr != null && !ipAddr.equals("")) {
             posted.append("&_psip=" + ipAddr);
         }
         return posted.toString();
@@ -86,7 +86,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
             final HttpServletResponse response,
             final Object handler,
             final Exception exception) throws Exception {
-        if (exception != null){
+        if (exception != null) {
             exception.printStackTrace();
         }
         log.info("[afterCompletion][" + request + "][exception: " + exception + "]");

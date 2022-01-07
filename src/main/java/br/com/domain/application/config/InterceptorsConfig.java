@@ -1,5 +1,6 @@
-package br.com.domain.application.logger;
+package br.com.domain.application.config;
 
+import br.com.domain.application.interceptor.LoggerInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
